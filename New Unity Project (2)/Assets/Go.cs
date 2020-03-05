@@ -27,7 +27,7 @@ public class Go : MonoBehaviour
 
         stand.position = new Vector3(23.85f, 71f, 0f);
 
-        if (Physics2D.OverlapCircle(new Vector3(24f, 72f, 0f), 2f, Challanger) && isnottriggered == true)
+        if (Physics2D.OverlapCircle(new Vector3(24f, 73f, 0f), 4.04f, Challanger) && isnottriggered == true)
         {
             checker = true;
         }

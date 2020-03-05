@@ -14,7 +14,7 @@ public class credit : MonoBehaviour
     private GameObject textToEdit;
 
     /*
-     * dit script laat een scrollrect loopen. het zet ook alle lines in de content van die scrollrect. het word gebruikt in de eindscene
+     * Dit script laat een scrollrect loopen. Het zet ook alle lines in de content van die scrollrect. Het word gebruikt in de eindscene
      * voor de credits
      */
 

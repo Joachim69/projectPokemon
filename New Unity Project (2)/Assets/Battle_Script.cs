@@ -312,15 +312,15 @@ public class Battle_Script : MonoBehaviour
     {
         if (effectiveness > 1f)
         {
-            Eventtekst.text = "its super effective!";
+            Eventtekst.text = "It's super effective!";
         }
         else if (effectiveness < 1f)
         {
-            Eventtekst.text = "its not very effective...";
+            Eventtekst.text = "It's not very effective...";
         }
         else if (effectiveness == 1f)
         {
-            Eventtekst.text = "its effective";
+            Eventtekst.text = "It hit!";
         }
     }
 
