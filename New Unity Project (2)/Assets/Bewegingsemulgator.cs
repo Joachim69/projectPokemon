@@ -13,6 +13,10 @@ public class Bewegingsemulgator : MonoBehaviour
     //Geeft het punt aan waar de player naar gaat lopen.
     public bool freeze = false;
     public LayerMask blockDetector;
+    public Sprite moveRight;
+    public Sprite forwards;
+    public Sprite backwards;
+    public SpriteRenderer sr;
     //Eigenschap van walkDirection, checkt of er iets staat waar hij niet mag komen, bijvoorbeeld muren of voorwerpen.
 
     public LayerMask SceneShifter;
@@ -23,7 +27,7 @@ public class Bewegingsemulgator : MonoBehaviour
     void Start()
     //Wat de computer bij het opstarten moet laden / uitvoeren.
     {
-
+        GameObject.FindObjectOfType<party>().resetMusic();
     }
 
 
@@ -47,6 +51,15 @@ public class Bewegingsemulgator : MonoBehaviour
                         walkDirection.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
                     }
 
+                    //set up the sprite
+                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    {
+                        //make the sprite move right
+                    }
+                    else if (Input.GetAxisRaw("Horizontal") < 0)
+                    {
+                        //make the sprite move left
+                    }
                 }
 
                 else if ((Input.GetAxisRaw("Vertical")) == 1f || (Input.GetAxisRaw("Vertical") == -1f))
@@ -54,6 +67,14 @@ public class Bewegingsemulgator : MonoBehaviour
                     if (!Physics2D.OverlapCircle(walkDirection.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.05f, blockDetector))
                     {
                         walkDirection.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                    }
+                    if (Input.GetAxisRaw("Vertical") > 0)
+                    {
+                        //make the sprite move up
+                    }
+                    else if (Input.GetAxisRaw("Vertical") < 0)
+                    {
+                        //make the sprite move down
                     }
                 }
 
