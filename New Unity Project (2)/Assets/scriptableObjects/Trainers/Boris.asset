@@ -20,4 +20,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46afcc5004df4b54985841079cd26db8, type: 2}
   - {fileID: 11400000, guid: 6bc9f5b495f80c54d996b6cfdf02d26f, type: 2}
   name: Boris
-  trainerTheme: {fileID: 8300000, guid: b3807f60d8b65da4e98a0d2c003dacbf, type: 3}
+  trainerTheme: {fileID: 8300000, guid: 4a0877ff85db1e34a93e8ec4cf9ab4e7, type: 3}

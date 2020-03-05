@@ -773,9 +773,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'thank you for playing!
+  m_Text: 'Thank you for playing!
 
-    press the button below to return to the titleScreen'
+    Press the button below to return to the titleScreen.'
 --- !u!222 &1543806380
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -917,25 +917,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textLines:
-  - music (0st trainer) - the godfather
-  - music (1st trainer) - SunnyMoon - projectpokemon
+  - music (0st trainer) - The Godfather
+  - music (1st trainer) - SunnyMoon - Projectpokemon
   - music (2nd trainer) - HollowKnights - The Nightmare King
   - music (3rd trainer) - JoJo - Giorno's Theme
   - music (4th trainer) - The Witcher 3 - On thin Ice
-  - music (map) - books of war
-  - music (main Screen) - Lego Worlds - fight on!
+  - music (map) - Books of war
+  - music (main Screen) - Lego Worlds - Fight on!
   - programming - Thomas Vallentgoed
   - programming - Boris Barzcyk
-  - programming - maurits v/d Poll
+  - programming - Maurits van der Poll
   - programming - Joachim Bose
   - Project Director - Jeroen de Brouwer
-  - Art Director - Maurits v/poll
+  - Art Director - Maurits van der Poll
   - Music Director - Boris Barczyk
   - Animation Director - Thomas Vallentgoed
   - Design Director - Joachim Bose
   - Original Idea - Niantic inc.
   - Player - you
-  - 'special Thanks:'
+  - 'Special thanks:'
   - ChaosGorrilla
   - TheGamingJJ
   - SneakyPenguin
@@ -944,7 +944,7 @@ MonoBehaviour:
   - DDjDeath
   - Bread 4u
   sr: {fileID: 1655618736}
-  speed: 50
+  speed: 40
   textLinePrefab: {fileID: 6857130148304616756, guid: 31cfb77ff654823449e2a8d72f014729,
     type: 3}
   content: {fileID: 724757977}

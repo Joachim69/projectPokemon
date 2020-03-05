@@ -1779,6 +1779,7 @@ MonoBehaviour:
   isTestParty: 0
   inBattle: 0
   automateMoveSelection: 0
+  endBoss: {fileID: 11400000, guid: 9d0f1dca6edf6794e8b09324ba4a700c, type: 2}
   musicSource: {fileID: 1615372262}
   mapMusic: {fileID: 8300000, guid: 510b25cb46da286438536108f8b1257d, type: 3}
   firsPokemonIndex: 0
