@@ -747,7 +747,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: play
+  m_Text: Play
 --- !u!222 &707723360
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1098,10 +1098,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'by Thomas, Boris, Maurits and Joachim.
+  m_Text: 'By Boris Barczyk, Joachim Boze, Thomas Vallentgoed & Maurits van der Poll.
 
-    This game may NOT be sold
-    or published by 3rd parties. Only the creators of this game are allowed to distribute'
+    This
+    game may NOT be sold or published by 3rd parties. Only the creators of this game
+    are allowed to distribute.'
 --- !u!222 &1617406569
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1345,7 +1346,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: project pokemon
+  m_Text: Project Pokemon
 --- !u!222 &2081544690
 CanvasRenderer:
   m_ObjectHideFlags: 0

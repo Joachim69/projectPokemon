@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Thomas
   m_EditorClassIdentifier: 
   pokemons:
-  - {fileID: 11400000, guid: 670dcde4c4104834eb32a194559a1a7b, type: 2}
+  - {fileID: 11400000, guid: 60846b0fd1c1d5d4a8ca238091268d89, type: 2}
   - {fileID: 11400000, guid: 7a05a19b3ae77ea459d343cbd7915224, type: 2}
   - {fileID: 11400000, guid: edbac5ad873b530459ceb82783996aa7, type: 2}
   - {fileID: 11400000, guid: 649f58cdb4b4a33468f88b9218873313, type: 2}
