@@ -135,6 +135,7 @@ public class Battle_Script : MonoBehaviour
         Eventtekst.text = "What will " + ourpok.name + " do?";
         //aanroepen van updateUI
         updateUI();
+        checkForFaint();
     }
 
     //deze functie word geroepen door een knop
@@ -540,11 +541,4 @@ public class Battle_Script : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-
-
 
