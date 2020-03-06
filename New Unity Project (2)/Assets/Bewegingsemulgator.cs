@@ -35,9 +35,9 @@ public class Bewegingsemulgator : MonoBehaviour
     // Update het programma een aantal keer per seconde
 
     {
+
         if (freeze != true)
         {
-
             transform.position = Vector3.MoveTowards(transform.position, walkDirection.position, speed * Time.deltaTime);
             //Geeft directie en snelheid aan waarmee hij naar het punt gaat waar hij toe gaat lopen, met de snelheid. Transform.position is de positie van de speler, walkDirection.position is het punt waar hij naartoe gaat, en speed * Time.deltaTime zorgt voor de snelheid.
 
@@ -55,10 +55,14 @@ public class Bewegingsemulgator : MonoBehaviour
                     if (Input.GetAxisRaw("Horizontal") > 0)
                     {
                         //make the sprite move right
+                        sr.sprite = moveRight;
+                        sr.flipX = false;
                     }
                     else if (Input.GetAxisRaw("Horizontal") < 0)
                     {
                         //make the sprite move left
+                        sr.sprite = moveRight;
+                        sr.flipX = true;
                     }
                 }
 
@@ -71,10 +75,12 @@ public class Bewegingsemulgator : MonoBehaviour
                     if (Input.GetAxisRaw("Vertical") > 0)
                     {
                         //make the sprite move up
+                        sr.sprite = forwards;
                     }
                     else if (Input.GetAxisRaw("Vertical") < 0)
                     {
                         //make the sprite move down
+                        sr.sprite = backwards;
                     }
                 }
 

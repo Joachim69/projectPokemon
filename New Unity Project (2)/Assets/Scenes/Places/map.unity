@@ -10110,15 +10110,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  runspeed: 10000
+  walkSpeed: 5
   walkDirection: {fileID: 1583601027}
   freeze: 0
   blockDetector:
     serializedVersion: 2
     m_Bits: 256
-  moveRight: {fileID: 0}
-  forwards: {fileID: 0}
-  backwards: {fileID: 0}
-  sr: {fileID: 0}
+  moveRight: {fileID: 21300000, guid: 40428094d879f1e42ba611389ce21b9d, type: 3}
+  forwards: {fileID: 21300000, guid: 69395ec6b2ffaf34c93cb241d3ebc85d, type: 3}
+  backwards: {fileID: 21300000, guid: c05e74b15766cdf479780fb7011385bc, type: 3}
+  sr: {fileID: 2095251705}
   SceneShifter:
     serializedVersion: 2
     m_Bits: 1024
