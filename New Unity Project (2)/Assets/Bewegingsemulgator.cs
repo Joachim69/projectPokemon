@@ -17,12 +17,22 @@ public class Bewegingsemulgator : MonoBehaviour
     public Sprite forwards;
     public Sprite backwards;
     public SpriteRenderer sr;
-    //Eigenschap van walkDirection, checkt of er iets staat waar hij niet mag komen, bijvoorbeeld muren of voorwerpen.
 
+    public bool touchOnlyDeviceBuild; //this is a bolean for checking if we are creating the game for a touch only device
+                                      //the touch only device code has been added after the deadline (for personal use mostly)
+    public Joystick joystick;   //the joystick for touch-only devices downloaded from here:https://assetstore.unity.com/packages/tools/input-management/joystick-pack-107631?aid=1100l355n&gclid=Cj0KCQiAhojzBRC3ARIsAGtNtHXTxBNhcUm1ULeqGJn7ldcK-ohA62wsdeWNLcMUdQKaq5V851UzJ1waAkbEEALw_wcB&pubref=UnityAssets%2ADyn03%2A1723478829%2A67594162255%2A336302044055%2Ag%2A%2A%2Ab%2Ac%2Agclid%3DCj0KCQiAhojzBRC3ARIsAGtNtHXTxBNhcUm1ULeqGJn7ldcK-ohA62wsdeWNLcMUdQKaq5V851UzJ1waAkbEEALw_wcB&utm_source=aff
+
+    [Range(0.0f, 1.0f)] //makes a slider in the editor
+    public float joystickThreshold; //a threshold which the joystick has to be pushed past for it to work and the axis to become 1
+
+    //Eigenschap van walkDirection, checkt of er iets staat waar hij niet mag komen, bijvoorbeeld muren of voorwerpen.
     public LayerMask SceneShifter;
     public LayerMask trainers;
     private door closestDoor;
     private trainerInMap closestTrainer;
+
+    private float horizontalInput;
+    private float verticalInput;
 
     void Start()
     //Wat de computer bij het opstarten moet laden / uitvoeren.
@@ -35,30 +45,69 @@ public class Bewegingsemulgator : MonoBehaviour
     // Update het programma een aantal keer per seconde
 
     {
-
         if (freeze != true)
         {
+
             transform.position = Vector3.MoveTowards(transform.position, walkDirection.position, speed * Time.deltaTime);
             //Geeft directie en snelheid aan waarmee hij naar het punt gaat waar hij toe gaat lopen, met de snelheid. Transform.position is de positie van de speler, walkDirection.position is het punt waar hij naartoe gaat, en speed * Time.deltaTime zorgt voor de snelheid.
+
+            if (touchOnlyDeviceBuild)
+            {
+                if (joystick.Horizontal > joystickThreshold)
+                {
+                    horizontalInput = 1f;
+                }
+                else if (joystick.Horizontal < -1*joystickThreshold)
+                {
+                    horizontalInput = -1f;
+                }
+                else
+                {
+                    horizontalInput = 0f;
+                }
+
+                if (joystick.Vertical > joystickThreshold)
+                {
+                    verticalInput = 1f;
+                }
+                else if (joystick.Vertical < -1 * joystickThreshold)
+                {
+                    Debug.Log("move down");
+                    verticalInput = -1f;
+                }
+                else
+                {
+                    verticalInput = 0f;
+                }
+            }
+            else
+            {
+                horizontalInput = Input.GetAxisRaw("Horizontal");
+                verticalInput = Input.GetAxisRaw("Vertical");
+            }
 
             if (Vector3.Distance(transform.position, walkDirection.position) <= 0.1f)
             {
 
-                if ((Input.GetAxisRaw("Horizontal")) == 1f || (Input.GetAxisRaw("Horizontal") == -1f))
+                if (horizontalInput == 1f || horizontalInput == -1f)
                 {
-                    if (!Physics2D.OverlapCircle(walkDirection.position + new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f), 0.05f, blockDetector))
+                    if (!Physics2D.OverlapCircle(walkDirection.position + new Vector3(horizontalInput, 0f, 0f), 0.05f, blockDetector))
                     {
-                        walkDirection.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                        walkDirection.position += new Vector3(horizontalInput, 0f, 0f);
+                    }
+                    else
+                    {
+                        Debug.Log("Detecting a block");
                     }
 
                     //set up the sprite
-                    if (Input.GetAxisRaw("Horizontal") > 0)
+                    if (horizontalInput > 0)
                     {
                         //make the sprite move right
                         sr.sprite = moveRight;
                         sr.flipX = false;
                     }
-                    else if (Input.GetAxisRaw("Horizontal") < 0)
+                    else if (horizontalInput < 0)
                     {
                         //make the sprite move left
                         sr.sprite = moveRight;
@@ -66,18 +115,22 @@ public class Bewegingsemulgator : MonoBehaviour
                     }
                 }
 
-                else if ((Input.GetAxisRaw("Vertical")) == 1f || (Input.GetAxisRaw("Vertical") == -1f))
+                else if (verticalInput == 1f || verticalInput == -1f)
                 {
-                    if (!Physics2D.OverlapCircle(walkDirection.position + new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f), 0.05f, blockDetector))
+                    if (!Physics2D.OverlapCircle(walkDirection.position + new Vector3(0f, verticalInput, 0f), 0.05f, blockDetector))
                     {
-                        walkDirection.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                        walkDirection.position += new Vector3(0f, verticalInput, 0f);
                     }
-                    if (Input.GetAxisRaw("Vertical") > 0)
+                    else
+                    {
+                        Debug.Log("Detecting a block");
+                    }
+                    if (verticalInput > 0)
                     {
                         //make the sprite move up
                         sr.sprite = forwards;
                     }
-                    else if (Input.GetAxisRaw("Vertical") < 0)
+                    else if (verticalInput < 0)
                     {
                         //make the sprite move down
                         sr.sprite = backwards;
@@ -140,11 +193,11 @@ public class Bewegingsemulgator : MonoBehaviour
                 }
             }
         }
-        float getDistance(GameObject target)
-        {
-            // ((x1-x2)^2+(y1-y2)^2)^0.5 <-- pythagoras formula for the distance 
-            return Mathf.Pow(Mathf.Pow(gameObject.transform.position.x - target.transform.position.x, 2) + Mathf.Pow(gameObject.transform.position.y - target.transform.position.y, 2), 0.5f);
-        }
+    }
+    float getDistance(GameObject target)
+    {
+        // ((x1-x2)^2+(y1-y2)^2)^0.5 <-- pythagoras formula for the distance 
+        return Mathf.Pow(Mathf.Pow(gameObject.transform.position.x - target.transform.position.x, 2) + Mathf.Pow(gameObject.transform.position.y - target.transform.position.y, 2), 0.5f);
     }
 }
 

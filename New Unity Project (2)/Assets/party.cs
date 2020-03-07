@@ -34,13 +34,14 @@ public class party : MonoBehaviour
     public int enemyPokemonIndex;
     public List<int> EnemyHps;
     public List<Trainer> trainersDefeated;
-    public Scene currentMapScene;
     public Vector3 playerPosInMap;
     public bool usePlayerPosOnLoad = false;
     /*
      * this script is designed to keep track of variables across scenes. the data in this object can be accessed by all scripts in a scene.
      * in start we make sure that this object is immortal, which means that it is not scene bound.
      * this script also acts as a scene manager, this is in charge of loading new scenes.
+     * 
+     * WARNING: the fader parts of this script are developed after the deadline.
      */
 
     private Battle_Script battle_Script;
@@ -93,7 +94,7 @@ public class party : MonoBehaviour
             pokemons.Add(newPokemon); 
             HPs.Add(newPokemon.HP);
         }
-
+         //fader starts
         SceneManager.LoadScene("Scenes/MoveSelector"); //move on to the moveselectorscreen
     }
 
@@ -101,6 +102,7 @@ public class party : MonoBehaviour
     public void setMoves(List<List<move>> newMoves)
     {
         moveSets = newMoves;
+        
         SceneManager.LoadScene("Scenes/Places/map");
     }
 
@@ -126,6 +128,7 @@ public class party : MonoBehaviour
     {
         if (inBattle) //if we opened the inventory out of a battle, we go back to the battle.
         {
+            
             SceneManager.LoadScene("Scenes/battle");
             if (item != null) //if the player used an item in the inventory, make sure that the player spends a turn doing that
             {
@@ -164,17 +167,20 @@ public class party : MonoBehaviour
             //store the hps of the enemy
             EnemyHps = battle_Script.enemyHps;
         }
+        
         SceneManager.LoadScene("Scenes/inventory");
     }
     public void startFight(Trainer newTrainer) //moves on to the battle scene and stores the trainer
     {
         trainer = newTrainer;
+        
         SceneManager.LoadScene("Scenes/battle");
 
     }
     public void endBattle() //the player won
     {
         inBattle = false;
+        
         SceneManager.LoadScene("Scenes/Places/map"); //go to the mapscene
         trainersDefeated.Add(trainer); //store the trainer defeated
         if (trainer == endBoss) 
@@ -184,6 +190,7 @@ public class party : MonoBehaviour
     }
     public void lose() //called when all pokemons died
     {
+        
         SceneManager.LoadScene("Scenes/titleScreen");
     }
     public void resetMusic() //is called on start of certain scenes
@@ -202,6 +209,7 @@ public class party : MonoBehaviour
     void winGame()
     {
         //displays the winscreen
+        
         SceneManager.LoadScene("Scenes/winScreen");
         Destroy(gameObject); //destroys object because we dont need it anymore.
     }

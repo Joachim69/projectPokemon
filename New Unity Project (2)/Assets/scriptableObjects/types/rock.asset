@@ -23,3 +23,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6367d3c9256168246a23e457a3c6be82, type: 2}
   - {fileID: 11400000, guid: 47b6a959cc147aa458e53fd4ed9cd9b5, type: 2}
   immunities: []
+  themeColor: {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}
+  themeAccents: {r: 1, g: 1, b: 1, a: 1}

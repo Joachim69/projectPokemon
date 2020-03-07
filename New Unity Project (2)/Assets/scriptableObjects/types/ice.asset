@@ -19,3 +19,5 @@ MonoBehaviour:
   resistances:
   - {fileID: 11400000}
   immunities: []
+  themeColor: {r: 0, g: 1, b: 0.93513966, a: 1}
+  themeAccents: {r: 0, g: 0, b: 0, a: 1}

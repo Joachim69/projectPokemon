@@ -9,4 +9,6 @@ public class Type : ScriptableObject
     public List<Type> vunerabilities = new List<Type> {};
     public List<Type> resistances = new List<Type> { };
     public List<Type> immunities = new List<Type> { };
+    public Color themeColor;
+    public Color themeAccents;
 }

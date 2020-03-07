@@ -22,7 +22,7 @@ TagManager:
   - Player
   - Door
   - GymLeader
-  - 
+  - UIoverlay
   - 
   - 
   - 
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Npc
     uniqueID: 4246932093
+    locked: 0
+  - name: UI
+    uniqueID: 1149964809
     locked: 0

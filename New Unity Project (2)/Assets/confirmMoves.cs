@@ -55,6 +55,11 @@ public class confirmMoves : MonoBehaviour
             }
         }
         confirmButton.onClick.AddListener(collectMoves); //makes sure that the next comment is made reality
+
+        foreach (ScrollRect scrollRect in FindObjectsOfType<ScrollRect>())
+        {
+            scrollRect.verticalNormalizedPosition = 1f;
+        }
     }
 
     //this method is called once the confirmbutton is pressed

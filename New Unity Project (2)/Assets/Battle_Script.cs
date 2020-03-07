@@ -28,10 +28,8 @@ public class Battle_Script : MonoBehaviour
     public Button move2b;
     public Button move3b;
     public Button backbutton;
-    public Text move1;
-    public Text move2;
-    public Text move3;
-    public Text move4;
+    public List<Text> moveTexts = new List<Text> { };
+    public List<Image> buttonImages = new List<Image>{};
 
 
     [Header("pokUI")]
@@ -173,10 +171,12 @@ public class Battle_Script : MonoBehaviour
         Enemypokname.text = enemypok.name;
 
         //veranderen 'move #' naar *movenaam*
-        move1.text = pokemonparty.moveSets[ourpokIndex][0].name;
-        move2.text = pokemonparty.moveSets[ourpokIndex][1].name; ;
-        move3.text = pokemonparty.moveSets[ourpokIndex][2].name; ;
-        move4.text = pokemonparty.moveSets[ourpokIndex][3].name; ;
+        foreach (Text text in moveTexts)
+        {
+            move MoveForText = pokemonparty.moveSets[ourpokIndex][moveTexts.IndexOf(text)];
+            text.text = MoveForText.name;
+            text.color = MoveForText.type.themeAccents;
+        }
 
         // ourpok hp
         OurPokMaxHp.text = ourpok.HP.ToString();
@@ -190,7 +190,11 @@ public class Battle_Script : MonoBehaviour
         {
 
         }
-
+        foreach (Image img in buttonImages)
+        {
+            img.color = pokemonparty.moveSets[ourpokIndex][buttonImages.IndexOf(img)].type.themeColor; 
+            //gets the theme color from the move's type
+        }
 
     }
 

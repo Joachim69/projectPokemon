@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3769757175739165308}
   m_Layer: 0
   m_Name: Party
-  m_TagString: Untagged
+  m_TagString: party
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,7 +39,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 545106639044646492}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a6f80beb3f395f441bb4105ff68ae89e, type: 3}
   m_Name: 
@@ -59,7 +59,8 @@ MonoBehaviour:
   itemAmounts: 0a000000
   isTestParty: 1
   inBattle: 0
-  automateMoveSelection: 0
+  automateMoveSelection: 1
+  endBoss: {fileID: 0}
   musicSource: {fileID: 3769757175739165308}
   mapMusic: {fileID: 0}
   firsPokemonIndex: 0
@@ -67,6 +68,10 @@ MonoBehaviour:
   enemyPokemonIndex: 0
   EnemyHps: 
   trainersDefeated: []
+  currentMapScene:
+    m_Handle: 0
+  playerPosInMap: {x: 40, y: -2, z: 0}
+  usePlayerPosOnLoad: 1
 --- !u!82 &3769757175739165308
 AudioSource:
   m_ObjectHideFlags: 0

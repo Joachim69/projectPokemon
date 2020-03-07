@@ -9,6 +9,7 @@ public class selectMove : MonoBehaviour
     public Text txtName;
     public Text txtStats;
     public Image img;
+    public Image isSpecial;
 
     public Sprite special;
     public Sprite physical;
@@ -26,12 +27,15 @@ public class selectMove : MonoBehaviour
         txtStats.text = "power: " + Move.power.ToString() + "accuracy: " + Move.accuracy.ToString() + "pp: " + Move.power.ToString();
         if (Move.isSpecial)
         {
-            img.sprite = special;
+            isSpecial.sprite = special;
         }
         else
         {
-            img.sprite = physical;
+            isSpecial.sprite = physical;
         }
+        img.color = Move.type.themeColor;
+        txtName.color = Move.type.themeAccents;
+        txtStats.color = Move.type.themeAccents;
     }
 
     //this is called when the creator of this object assigns a new move
